@@ -6,6 +6,7 @@ import Log from './assets/componant/Log';
 import NewComp from './assets/componant/NewComp';
 import MultiRef from './assets/componant/MultiRef';
 import Api from './assets/componant/Api';
+import Us from './assets/componant/Us';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <NewComp />
       <MultiRef />
       <Api />
+      <Us />
     </>
   )
 }
