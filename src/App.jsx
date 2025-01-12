@@ -7,6 +7,7 @@ import NewComp from './assets/componant/NewComp';
 import MultiRef from './assets/componant/MultiRef';
 import Api from './assets/componant/Api';
 import Us from './assets/componant/Us';
+import Form from './assets/componant/Form';
 
 function App() {
 
@@ -28,8 +29,9 @@ function App() {
       <MultiRef />
       <Api />
       <Us />
+      <Form />
     </>
   )
 }
-
+ 
 export default App
