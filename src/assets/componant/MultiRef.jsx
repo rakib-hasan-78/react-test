@@ -4,8 +4,8 @@ const MultiRef = () => {
     let name, number, email = useRef(null);
     let styleRef = useRef();
     let numberSet = useRef(0)
-    const onStyle = () => {
-        event.preventDefault();
+    const onStyle = (e) => {
+        e.preventDefault();
         if (styleRef.current.classList.contains('text-emerald-500')) {
             numberSet.current++;
             console.log(numberSet.current);

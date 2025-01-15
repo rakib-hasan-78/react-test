@@ -1,37 +1,29 @@
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css'
-import Demo from './assets/componant/Demo';
-import Log from './assets/componant/Log';
-import NewComp from './assets/componant/NewComp';
-import MultiRef from './assets/componant/MultiRef';
-import Api from './assets/componant/Api';
-import Us from './assets/componant/Us';
-import Form from './assets/componant/Form';
-import UE from './assets/componant/UE';
+import Home from './assets/pages/Home';
+import Product from './assets/pages/Product';
+import Service from "./assets/pages/Service";
+import Blog from "./assets/pages/Blog";
+import Contact from './assets/pages/Contact';
+import NotFound from './assets/pages/NotFound';
+
 
 function App() {
 
-  const BtnClick = () => {
-    alert('log out done ....');
-    console.log('clicked....')
-  }
-  const item = {
-    name: 'dr.james',
-    age: '24',
-    aim: 'ensure medical support',
-    occupation: 'businessman'
-}
   return (
     <>
-      <Log BtnClick= {()=>BtnClick()} />
-      <Demo test="Demo Title" item= {item}/>
-      <NewComp />
-      <MultiRef />
-      <Api />
-      <Us />
-      <Form />
-      <UE />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/Product' element={<Product/>}/>
+          <Route path='/Service' element={ <Service/>  }/>        
+          <Route path='/Blog' element={ <Blog/>  }/>
+          <Route path='/Contact' element={<Contact/> }></Route>        
+          <Route path='/*' element={<NotFound/> }></Route>        
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
