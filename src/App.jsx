@@ -8,6 +8,7 @@ import MultiRef from './assets/componant/MultiRef';
 import Api from './assets/componant/Api';
 import Us from './assets/componant/Us';
 import Form from './assets/componant/Form';
+import UE from './assets/componant/UE';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
       <Api />
       <Us />
       <Form />
+      <UE />
     </>
   )
 }
