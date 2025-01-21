@@ -9,8 +9,8 @@ const Menu = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Product">Product</Link></li>
             <li><Link to="/Service">Service</Link></li>
-            <li><Link to="/Blog">Blog</Link></li>
-            <li><Link to="/Contact">Contact</Link></li>
+            <li><Link to="/Blog/www.check.com/www.hello.com">Blog</Link></li>
+            <li><Link to="/Contact/">Contact</Link></li>
         </ul>
             
         </div>

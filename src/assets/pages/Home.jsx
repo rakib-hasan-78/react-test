@@ -9,6 +9,7 @@ import Form from '../componant/Form';
 import UE from '../componant/UE';
 import Menu from '../componant/Menu';
 import {BtnClick} from '../handler/btnClick'
+import Cdr from '../componant/Cdr';
 const Home = () => {
 
       const item = {
@@ -28,6 +29,7 @@ const Home = () => {
             <Us />
             <Form />
             <UE />
+            <Cdr />
         </div>
     );
 };
