@@ -6,7 +6,7 @@ import { BtnClick } from '../handler/btnClick';
 import { useParams } from 'react-router-dom';
 
 const Blog = () => {
-    let {check, peck} = useParams()
+    let {check, peck} = useParams() 
     return (
         <div>
         <span>Check: {check}</span><br />

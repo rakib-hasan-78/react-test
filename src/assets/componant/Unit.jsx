@@ -10,10 +10,10 @@ const Unit = ({title, grade, score, isResult}) => {
                     <p>Score : {score}</p>
                 </div>
             ) :  `Not Applicable....` */
-
-            return (
-                <li>Task:{title}{isResult||`Not Done`}</li>
-            )
+            let item;
+           
+                item= <li>Task:{title}{isResult||`Not Done`}</li>
+            return item;
 };
 
 export default Unit;
