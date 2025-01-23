@@ -11,6 +11,7 @@ import Menu from '../componant/Menu';
 import {BtnClick} from '../handler/btnClick'
 import Cdr from '../componant/Cdr';
 import Actors from '../componant/Actors';
+import Counter from '../componant/Counter';
 const Home = () => {
 
       const item = {
@@ -32,6 +33,7 @@ const Home = () => {
             <UE />
             <Cdr />
             <Actors />
+            <Counter />
         </div>
     );
 };
