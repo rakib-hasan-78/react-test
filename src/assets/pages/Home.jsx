@@ -12,6 +12,7 @@ import {BtnClick} from '../handler/btnClick'
 import Cdr from '../componant/Cdr';
 import Actors from '../componant/Actors';
 import Counter from '../componant/Counter';
+import JUE from '../componant/JUE';
 const Home = () => {
 
       const item = {
@@ -24,7 +25,7 @@ const Home = () => {
         <div>
             <Menu />
             <Log BtnClick= {()=>BtnClick()} />
-            <Demo test="Demo Title" item= {item}/>    
+            <Demo test="Demo Title" item= {item}/> 
             <NewComp />
             <MultiRef />
             <Api />
@@ -34,6 +35,7 @@ const Home = () => {
             <Cdr />
             <Actors />
             <Counter />
+            <JUE />   
         </div>
     );
 };
