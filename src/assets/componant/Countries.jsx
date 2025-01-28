@@ -27,7 +27,10 @@ const Countries = () => {
                      index={index} country={country} onOpen={()=>singleCountryHandler(country)}/> ))}
                 </div>
             </div>
-            {selectedCountry && ( <CountryMod country={selectedCountry}/> )}
+            {selectedCountry && ( 
+               
+                    <CountryMod country={selectedCountry} />
+             )}
         </div>
     );
 };
