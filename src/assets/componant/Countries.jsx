@@ -37,6 +37,10 @@ const Countries = () => {
           setSearched(false);
           setFilteredCountry(countries); 
     }
+    const modalHandler = () => {
+
+            setSelectedCountry(null);
+    }
     return (
         <div className='w-full bg-blue-800 py-9 mt-5 min-h-screen relative -z-2'>
             <SearchCountry
@@ -60,7 +64,7 @@ const Countries = () => {
             </div>
             {selectedCountry && ( 
                
-                    <CountryMod country={selectedCountry} />
+                    <CountryMod country={selectedCountry} onClick={modalHandler} />
              )}
         </div>
     );

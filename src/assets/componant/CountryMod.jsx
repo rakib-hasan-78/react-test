@@ -1,8 +1,10 @@
 import React from 'react';
 import Title from '../utilities/Title';
 import PG from '../utilities/PG';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
-const CountryMod = ({country}) => {
+const CountryMod = ({country, onClick}) => {
     const {name:{common, official},
           population,
           flags:{svg,alt}, 
@@ -22,8 +24,9 @@ const CountryMod = ({country}) => {
 
     return (
         <div className='w-10/12 bg-gradient-to-l from-emerald-500/70 from-30% via-green-600/60 to-teal-700/70 to-80% rounded-lg shadow-md backdrop-blur-md backdrop-brightness-90 backdrop-opacity-90 backdrop-contrast-125 border border-emerald-100 p-2 mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 flex flex-col items-center justify-center'>
-            <div className='w-full flex items-center justify-start py-2'>
+            <div className='w-full flex items-center justify-between py-2'>
                 <Title number={2} text={common} className={`text-2xl text-green-200`} />
+                <span className='text-white px-3 cursor-pointer text-2xl'>{<FontAwesomeIcon icon={faX} onClick={onClick} />}</span>
             </div>
             <div className='w-full flex'>
                 <div className='w-7/12'>
