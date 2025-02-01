@@ -3,6 +3,7 @@ import Country from './Country';
 import CountryMod from './CountryMod';
 import SearchCountry from './SearchCountry';
 import PG from '../utilities/PG';
+import Select from './Select';
 
 
 const Countries = () => {
@@ -11,8 +12,8 @@ const Countries = () => {
     const [filteredCountry, setFilteredCountry] = useState([]);
     const [filterText , setFilterText] = useState('');
     const [searched, setSearched] = useState(false);
-
-    console.log(countries)
+    
+    console.log(countries); 
     useEffect(() => {
          fetch('https://restcountries.com/v3.1/all')
          .then((response) => response.json())
@@ -41,10 +42,28 @@ const Countries = () => {
 
             setSelectedCountry(null);
     }
+    const continentHandler = () => {
+        if (!filterText) {
+            setFilterText(countries);
+            return
+        }
+        else {
+            const filterContinent = countries.filter(country=>
+            country.continents.some(continent=>
+            continent.toLowerCase() === filterText.toLowerCase()));
+            setFilteredCountry(filterContinent);
+            setSearched(true);
+        }
+    };
+    
     return (
         <div className='w-full bg-blue-800 py-9 mt-5 min-h-screen relative -z-2'>
+            <Select 
+                selectContinent={filterText}
+                setSelectedContinent={setFilterText}
+                selectAction={continentHandler}
+            />
             <SearchCountry
-
                 targetValue={filterText} 
                 setTargetValue={setFilterText} 
                 onTarget={searchHandler}
