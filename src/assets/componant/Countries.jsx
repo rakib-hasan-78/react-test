@@ -4,6 +4,7 @@ import CountryMod from './CountryMod';
 import SearchCountry from './SearchCountry';
 import PG from '../utilities/PG';
 import Select from './Select';
+import VisitedCountry from './VisitedCountry';
 
 
 
@@ -13,7 +14,7 @@ const Countries = () => {
     const [filteredCountry, setFilteredCountry] = useState([]);
     const [filterText , setFilterText] = useState('');
     const [searched, setSearched] = useState(false);
-
+    const [visitedFlag, setVisitedFlag] = useState([])
     
     console.log(countries); 
     useEffect(() => {
@@ -58,8 +59,13 @@ const Countries = () => {
                 setFilteredCountry(filterContinent);
                 setSearched(true);
             }
-        }
+        }  
     };
+
+
+    const visitArrayHandler = country => {
+        setVisitedFlag([...visitedFlag, country.flags.svg]);
+    }
 
 
     
@@ -76,6 +82,7 @@ const Countries = () => {
                 onTarget={searchHandler}
                 onClean={cancelHandler}
                 />
+            <VisitedCountry visitedFlag={visitedFlag}/>
             <div className='w-11/12 mx-auto flex flex-wrap flex-col bg-sky-600/40 bg-opacity-55 py-3 shadow-md rounded-md'>
                 {searched&&(
                     <PG type={'p'} 
@@ -86,7 +93,9 @@ const Countries = () => {
 
                     {filteredCountry.map((country, index)=>( <Country key={country.cca3}
                      index={index} country={country} onOpen={()=>singleCountryHandler(country)}
-                     /> ))}
+                     visitArrayHandler={visitArrayHandler}
+                     />
+                      ))}
                 </div>
             </div>            
             
