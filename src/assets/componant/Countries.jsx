@@ -6,12 +6,14 @@ import PG from '../utilities/PG';
 import Select from './Select';
 
 
+
 const Countries = () => {
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [filteredCountry, setFilteredCountry] = useState([]);
     const [filterText , setFilterText] = useState('');
     const [searched, setSearched] = useState(false);
+
     
     console.log(countries); 
     useEffect(() => {
@@ -48,13 +50,18 @@ const Countries = () => {
             return
         }
         else {
-            const filterContinent = countries.filter(country=>
-            country.continents.some(continent=>
-            continent.toLowerCase() === filterText.toLowerCase()));
-            setFilteredCountry(filterContinent);
-            setSearched(true);
+            if (typeof filterText === 'string') {
+                
+                const filterContinent = countries.filter(country=>
+                country.continents.some(continent=>
+                continent.toLowerCase() === filterText.toLowerCase()));
+                setFilteredCountry(filterContinent);
+                setSearched(true);
+            }
         }
     };
+
+
     
     return (
         <div className='w-full bg-blue-800 py-9 mt-5 min-h-screen relative -z-2'>
@@ -78,13 +85,17 @@ const Countries = () => {
                 <div className='w-full flex flex-wrap items-center gap-6 justify-center'>
 
                     {filteredCountry.map((country, index)=>( <Country key={country.cca3}
-                     index={index} country={country} onOpen={()=>singleCountryHandler(country)}/> ))}
+                     index={index} country={country} onOpen={()=>singleCountryHandler(country)}
+                     /> ))}
                 </div>
-            </div>
-            {selectedCountry && ( 
+            </div>            
+            
+            
+            {selectedCountry && (  
                
                     <CountryMod country={selectedCountry} onClick={modalHandler} />
              )}
+             
         </div>
     );
 };
