@@ -1,16 +1,23 @@
  import React, { useState } from 'react';
 import Title from '../utilities/Title';
 import Button from '../utilities/Button';
-import CountryMod from './CountryMod';
+
 
 const Country = ({country , index, onOpen, visitArrayHandler}) => {
     const [isVisited, setIsVisited] = useState(false);
-    const {flags:{png, alt}, name:{common},   } = country;
+    const {flags:{png, alt}, name:{common}, cca3  } = country;
 
-    const visitHandler =  ()=>{ 
-        setIsVisited(!isVisited)
-        visitArrayHandler(country)
-    };
+    const visitHandler = () =>{
+        setIsVisited(!isVisited);
+
+        if (!isVisited) {
+            visitArrayHandler(prevValue=> [...prevValue, country])
+        } else {
+            visitArrayHandler(prevFlags => prevFlags.filter(value => value.cca3 !== cca3));
+        }
+
+    }
+    
     return (
         <div 
             className='w-3/12 bg-gradient-to-l from-neutral-500/50 from-60% via-gray-600/80 via-90% to-zinc-400/80 rounded-lg shadow-md backdrop-blur backdrop-brightness-90 bg-opacity-65 border border-blue-50 inset-0'>

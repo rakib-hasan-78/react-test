@@ -62,9 +62,8 @@ const Countries = () => {
         }  
     };
 
-
-    const visitArrayHandler = country => {
-        setVisitedFlag([...visitedFlag, country.flags.svg]);
+    const visitArrayHandler = (newCountry)=>{
+        setVisitedFlag(newCountry)
     }
 
 
@@ -93,7 +92,7 @@ const Countries = () => {
 
                     {filteredCountry.map((country, index)=>( <Country key={country.cca3}
                      index={index} country={country} onOpen={()=>singleCountryHandler(country)}
-                     visitArrayHandler={visitArrayHandler}
+                     visitArrayHandler ={visitArrayHandler }
                      />
                       ))}
                 </div>
